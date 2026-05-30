@@ -72,6 +72,7 @@ attachHls(document.querySelector("#footer-video"));
 
 async function loadDownloadStats() {
   const endpoints = [
+    ["#total-downloads", "https://aurumoracle.duckdns.org/api/downloads"],
     ["#modrinth-downloads", "https://aurumoracle.duckdns.org/api/modrinth/"],
     ["#curseforge-downloads", "https://aurumoracle.duckdns.org/api/curseforge/"],
   ];
