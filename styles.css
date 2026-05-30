@@ -724,6 +724,16 @@ main {
   font-size: 0.86rem;
 }
 
+.oracle-mark {
+  border-color: rgba(255, 255, 255, 0.24);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent),
+    rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 950;
+}
+
 .stack-cloud span::after {
   content: "";
   position: absolute;
