@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Aurimas (auuruum) portfolio: Python, Arduino, Minecraft mods, creative code, and media work from Vilnius."
+      content="Aurimas (auuruum) portfolio: Python, Arduino, Minecraft mods, creative code, hardware experiments, and media work from Vilnius."
     />
     <title>Aurimas | auuruum</title>
-    <link rel="preconnect" href="https://github.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <canvas id="signal-canvas" aria-hidden="true"></canvas>
+    <div class="noise" aria-hidden="true"></div>
 
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Aurimas home">
@@ -27,44 +32,64 @@
     </header>
 
     <main id="top">
-      <section class="hero">
+      <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">auuruum</p>
-          <h1>I make things with code, hardware, games, and design.</h1>
+          <p class="eyebrow">Vilnius / code / hardware / games</p>
+          <h1 id="hero-title">
+            <span>auu</span><span class="accent-text">ruum</span>
+          </h1>
           <p class="hero-text">
-            Personal portfolio for experiments, finished projects, weird ideas, useful tools, and everything I keep building along the way.
+            I build Minecraft mods, Arduino weather hardware, Discord tools, and sharp little web experiments. Loud systems. Practical code. Finished things.
           </p>
           <div class="hero-actions" aria-label="Primary links">
             <a class="button primary" href="https://github.com/auuruum" target="_blank" rel="noreferrer">View GitHub</a>
+            <a class="button outline" href="#work">See Work</a>
           </div>
         </div>
 
-        <aside class="hero-art" aria-label="auuruum visual">
-          <img
-            src="https://i.ibb.co/twTTY1xW/1920x1080.png"
-            alt="auuruum avatar artwork"
-          />
-        </aside>
+        <figure class="hero-visual" aria-label="auuruum visual identity">
+          <img src="https://i.ibb.co/twTTY1xW/1920x1080.png" alt="auuruum avatar artwork" />
+          <figcaption>creative systems / mods / embedded builds</figcaption>
+        </figure>
       </section>
 
-      <section class="section intro">
+      <section class="marquee-band" aria-label="Portfolio themes">
+        <div class="marquee-track">
+          <span>Minecraft mods</span>
+          <span>Arduino</span>
+          <span>Python</span>
+          <span>Discord bots</span>
+          <span>Creative code</span>
+          <span>Media tools</span>
+          <span>Minecraft mods</span>
+          <span>Arduino</span>
+          <span>Python</span>
+          <span>Discord bots</span>
+          <span>Creative code</span>
+          <span>Media tools</span>
+        </div>
+      </section>
+
+      <section class="intro" aria-label="Portfolio intro">
         <p>
-          This portfolio is a compact command center for auuruum: real hardware projects, mod downloads, server tooling, socials, and a bit of motion. Built to feel like a workshop bench, not a generic resume page.
+          This is not a polished resume museum. It is a command wall for real builds: millions of mod downloads, hardware experiments, server tooling, design work, and whatever useful thing gets shipped next.
         </p>
       </section>
 
-      <section class="section mod-stats" id="work" aria-label="Minecraft download stats">
+      <section class="section mod-stats" id="work" aria-labelledby="stats-title">
         <div class="section-heading">
-          <p class="eyebrow">Minecraft mods</p>
-          <h2>Main achievement: millions of downloads</h2>
+          <p class="eyebrow">Main signal</p>
+          <h2 id="stats-title">Millions of downloads</h2>
         </div>
         <div class="download-grid">
-          <a class="download-card modrinth" href="https://modrinth.com/user/auuruum" target="_blank" rel="noreferrer">
+          <a class="download-card" href="https://modrinth.com/user/auuruum" target="_blank" rel="noreferrer">
+            <span class="big-number" aria-hidden="true">01</span>
             <span class="download-source">Modrinth</span>
             <strong id="modrinth-downloads">553.4K</strong>
             <span>downloads</span>
           </a>
-          <a class="download-card curseforge" href="https://www.curseforge.com/members/auuruum/projects" target="_blank" rel="noreferrer">
+          <a class="download-card" href="https://www.curseforge.com/members/auuruum/projects" target="_blank" rel="noreferrer">
+            <span class="big-number" aria-hidden="true">02</span>
             <span class="download-source">CurseForge</span>
             <strong id="curseforge-downloads">3.4M</strong>
             <span>downloads</span>
@@ -72,18 +97,17 @@
         </div>
       </section>
 
-      <section class="section" id="projects">
-        <div class="section-heading">
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading wide">
           <p class="eyebrow">Selected work</p>
-          <h2>Other real projects</h2>
+          <h2 id="projects-title">Built, tested, published</h2>
         </div>
         <div class="project-grid">
-          <article class="project-card featured">
+          <article class="project-card">
+            <span class="big-number" aria-hidden="true">03</span>
             <div class="project-kicker">Arduino display</div>
             <h3>Weather Station DIY Display</h3>
-            <p>
-              Display side of the DIY weather station: a clean hardware-facing interface for showing live sensor data from the station.
-            </p>
+            <p>Display side of the DIY weather station: a clean hardware-facing interface for showing live sensor data.</p>
             <div class="tags">
               <span>Arduino</span>
               <span>Display</span>
@@ -92,12 +116,11 @@
             <a href="https://github.com/auuruum/Weather-Station-DIY-DISPLAY">Open project</a>
           </article>
 
-          <article class="project-card featured">
+          <article class="project-card">
+            <span class="big-number" aria-hidden="true">04</span>
             <div class="project-kicker">Arduino sensors</div>
             <h3>Weather Station DIY Sensors</h3>
-            <p>
-              Sensor side of the weather station: collects environmental data and feeds the display build with useful readings.
-            </p>
+            <p>Sensor side of the weather station: environmental readings piped into the display build.</p>
             <div class="tags">
               <span>Arduino</span>
               <span>Sensors</span>
@@ -107,11 +130,10 @@
           </article>
 
           <article class="project-card">
+            <span class="big-number" aria-hidden="true">05</span>
             <div class="project-kicker">Discord bot</div>
             <h3>BebraLand Discord Bot</h3>
-            <p>
-              Community bot for BebraLand: server automation, Discord utilities, and quality of life features for players.
-            </p>
+            <p>Community automation, Discord utilities, and quality of life features for players.</p>
             <div class="tags">
               <span>Discord</span>
               <span>Bot</span>
@@ -122,47 +144,62 @@
         </div>
       </section>
 
-      <section class="section split" id="stack">
+      <section class="marquee-band accent" aria-label="Stats ticker">
+        <div class="marquee-track reverse">
+          <span>3.4M+ CurseForge</span>
+          <span>553K+ Modrinth</span>
+          <span>Arduino weather station</span>
+          <span>Discord automation</span>
+          <span>Creative stack</span>
+          <span>3.4M+ CurseForge</span>
+          <span>553K+ Modrinth</span>
+          <span>Arduino weather station</span>
+          <span>Discord automation</span>
+          <span>Creative stack</span>
+        </div>
+      </section>
+
+      <section class="section split" id="stack" aria-labelledby="stack-title">
         <div class="section-heading">
           <p class="eyebrow">Stack</p>
-          <h2>Tools I actually use</h2>
+          <h2 id="stack-title">Tools I actually use</h2>
         </div>
         <div class="stack-board" aria-label="Skills and tools">
           <div class="stack-row">
             <h3>Languages</h3>
             <div class="stack-badges">
-              <span style="--accent: #3776ab">Python</span>
-              <span style="--accent: #00599c">C++</span>
-              <span style="--accent: #f7df1e; --badge-ink: #171717">JavaScript</span>
-              <span style="--accent: #e34f26">HTML5</span>
-              <span style="--accent: #1572b6">CSS3</span>
+              <span>Python</span>
+              <span>C++</span>
+              <span>JavaScript</span>
+              <span>HTML5</span>
+              <span>CSS3</span>
             </div>
           </div>
           <div class="stack-row">
             <h3>Embedded / Hardware</h3>
             <div class="stack-badges">
-              <span style="--accent: #00979d">Arduino</span>
-              <span style="--accent: #202020">ESP32 / ESP8266</span>
-              <span style="--accent: #fcc624; --badge-ink: #171717">Linux</span>
+              <span>Arduino</span>
+              <span>ESP32 / ESP8266</span>
+              <span>Linux</span>
             </div>
           </div>
           <div class="stack-row">
             <h3>Creative / Tools</h3>
             <div class="stack-badges">
-              <span style="--accent: #5865f2">Discord bots</span>
-              <span style="--accent: #62b47a">Minecraft mods</span>
-              <span style="--accent: #31a8ff">Photoshop</span>
-              <span style="--accent: #9999ff">After Effects</span>
-              <span style="--accent: #ea77ff">Premiere Pro</span>
+              <span>Discord bots</span>
+              <span>Minecraft mods</span>
+              <span>Photoshop</span>
+              <span>After Effects</span>
+              <span>Premiere Pro</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section contact" id="contact">
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div>
           <p class="eyebrow">Links</p>
-          <h2>Find auuruum around internet</h2>
+          <h2 id="contact-title">Find auuruum around internet</h2>
         </div>
         <div class="link-grid">
           <a href="https://auuruum.github.io/">Linktree</a>
@@ -175,7 +212,7 @@
     </main>
 
     <footer class="site-footer">
-      <span>Made with love by aurum.</span>
+      <span>Made by aurum.</span>
       <a href="#top">Back to top</a>
     </footer>
 
