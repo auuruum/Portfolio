@@ -34,7 +34,7 @@
         <a href="#work">Work</a>
         <a href="#stack">Stack</a>
         <span class="nav-divider"></span>
-        <a class="say-hi" href="mailto:legooggovno@gmail.com">Say hi <span>-></span></a>
+        <a class="say-hi" href="mailto:aurimasdovgialo@gmail.com">Say hi <span>-></span></a>
       </nav>
     </header>
 
@@ -91,29 +91,33 @@
         </div>
 
         <div class="bento-grid">
-          <a class="project-card wide modrinth" href="https://modrinth.com/user/auuruum" target="_blank" rel="noreferrer">
-            <img src="https://i.ibb.co/twTTY1xW/1920x1080.png" alt="" />
-            <div class="card-shade"></div>
+          <a class="project-card wide platform-card modrinth" href="https://modrinth.com/user/auuruum" target="_blank" rel="noreferrer">
+            <div class="platform-bg" aria-hidden="true">
+              <span class="platform-logo">M</span>
+              <span class="platform-rings"></span>
+            </div>
             <div class="card-copy">
-              <span>Minecraft mods</span>
-              <h3>Modrinth ecosystem</h3>
+              <span>Modrinth</span>
+              <h3>Creator profile</h3>
               <p><strong id="modrinth-downloads">553.4K</strong> downloads across public releases.</p>
             </div>
             <b>View - <em>Modrinth</em></b>
           </a>
 
-          <a class="project-card curseforge" href="https://www.curseforge.com/members/auuruum/projects" target="_blank" rel="noreferrer">
-            <img src="https://i.ibb.co/hRtSbyDW/128x128.png" alt="" />
-            <div class="card-shade"></div>
+          <a class="project-card platform-card curseforge" href="https://www.curseforge.com/members/auuruum/projects" target="_blank" rel="noreferrer">
+            <div class="platform-bg" aria-hidden="true">
+              <span class="platform-logo">CF</span>
+              <span class="platform-rings"></span>
+            </div>
             <div class="card-copy">
-              <span>Distribution</span>
-              <h3>CurseForge projects</h3>
+              <span>CurseForge</span>
+              <h3>Project hub</h3>
               <p><strong id="curseforge-downloads">3.4M</strong> downloads and growing.</p>
             </div>
             <b>View - <em>CurseForge</em></b>
           </a>
 
-          <a class="project-card" href="https://github.com/auuruum/Weather-Station-DIY-DISPLAY" target="_blank" rel="noreferrer">
+          <a class="project-card hardware-card" href="https://github.com/auuruum/Weather-Station-DIY-DISPLAY" target="_blank" rel="noreferrer">
             <div class="project-visual hardware"></div>
             <div class="card-copy">
               <span>Arduino display</span>
@@ -121,6 +125,16 @@
               <p>Hardware-facing interface for live sensor readings.</p>
             </div>
             <b>Open - <em>Display</em></b>
+          </a>
+
+          <a class="project-card hardware-card" href="https://github.com/auuruum/Weather-Station-DIY-SENSORS" target="_blank" rel="noreferrer">
+            <div class="project-visual sensors"></div>
+            <div class="card-copy">
+              <span>Arduino sensors</span>
+              <h3>Weather Station DIY Sensors</h3>
+              <p>Sensor node that collects environmental data for the station.</p>
+            </div>
+            <b>Open - <em>Sensors</em></b>
           </a>
 
           <a class="project-card wide" href="https://github.com/BebraLand/BebraLand-Discord-Bot" target="_blank" rel="noreferrer">
@@ -135,31 +149,62 @@
         </div>
       </section>
 
-      <section class="section split" id="stack">
-        <div class="section-head compact">
-          <p class="eyebrow">Capabilities</p>
-          <h2>What I can <em>build</em></h2>
+      <section class="section stack-section" id="stack">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Tech stack</p>
+            <h2>Tools I use to <em>ship</em></h2>
+          </div>
         </div>
-        <div class="capability-list">
-          <article>
-            <span>01</span>
-            <h3>Minecraft mod publishing</h3>
-            <p>Modrinth, CurseForge, release polish, download-facing project pages.</p>
+        <div class="stack-grid">
+          <article class="stack-group">
+            <h3>Languages</h3>
+            <div class="stack-cloud">
+              <span style="--brand:#3776ab">Python</span>
+              <span style="--brand:#00599c">C++</span>
+              <span style="--brand:#f7df1e;--ink:#111">JavaScript</span>
+              <span style="--brand:#e34f26">HTML5</span>
+              <span style="--brand:#1572b6">CSS3</span>
+            </div>
           </article>
-          <article>
-            <span>02</span>
-            <h3>Hardware prototypes</h3>
-            <p>Arduino, ESP boards, displays, sensors, and small connected systems.</p>
+          <article class="stack-group">
+            <h3>Embedded / Hardware</h3>
+            <div class="stack-cloud">
+              <span style="--brand:#00979d">Arduino</span>
+              <span style="--brand:#111827">ESP32 / ESP8266</span>
+            </div>
           </article>
-          <article>
-            <span>03</span>
-            <h3>Automation tools</h3>
-            <p>Discord bots, server helpers, scripts, APIs, and practical web utilities.</p>
+          <article class="stack-group tall">
+            <h3>DevOps / Infrastructure</h3>
+            <div class="stack-cloud">
+              <span style="--brand:#fcc624;--ink:#111">Linux</span>
+              <span style="--brand:#f80000">Oracle Cloud</span>
+              <span style="--brand:#2496ed">Docker</span>
+              <span style="--brand:#009639">Nginx</span>
+              <span style="--brand:#2b037a">PM2</span>
+              <span style="--brand:#111827">Uptime Kuma</span>
+              <span style="--brand:#4479a1">MySQL</span>
+              <span style="--brand:#003545">MariaDB</span>
+              <span style="--brand:#6c78af">phpMyAdmin</span>
+            </div>
           </article>
-          <article>
-            <span>04</span>
-            <h3>Visual media</h3>
-            <p>Photoshop, After Effects, Premiere Pro, UI styling, and motion taste.</p>
+          <article class="stack-group">
+            <h3>Virtualization</h3>
+            <div class="stack-cloud">
+              <span style="--brand:#607078">VMware</span>
+              <span style="--brand:#183a61">VirtualBox</span>
+            </div>
+          </article>
+          <article class="stack-group tall">
+            <h3>Creative tools</h3>
+            <div class="stack-cloud">
+              <span style="--brand:#31a8ff">Photoshop</span>
+              <span style="--brand:#9999ff;--ink:#111">After Effects</span>
+              <span style="--brand:#9999ff;--ink:#111">Premiere Pro</span>
+              <span style="--brand:#f24e1e">Figma</span>
+              <span style="--brand:#00c4cc">Canva</span>
+              <span style="--brand:#302e31">OBS Studio</span>
+            </div>
           </article>
         </div>
       </section>
@@ -170,8 +215,8 @@
           <span>combined mod downloads</span>
         </div>
         <div>
-          <strong>5+</strong>
-          <span>core languages and web tools</span>
+          <strong>24</strong>
+          <span>tools across code, hardware, infra, and media</span>
         </div>
         <div>
           <strong>24/7</strong>
@@ -195,7 +240,7 @@
         <div class="contact-inner">
           <p class="eyebrow">Contact</p>
           <h2>Want to see more?</h2>
-          <a class="button primary" href="mailto:legooggovno@gmail.com">Email me</a>
+          <a class="button primary" href="mailto:aurimasdovgialo@gmail.com">Email me</a>
           <div class="socials">
             <a href="https://auuruum.github.io/">Linktree</a>
             <a href="https://github.com/auuruum">GitHub</a>
