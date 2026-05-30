@@ -1,19 +1,74 @@
-const timeEl = document.querySelector("#local-time");
+document.body.classList.add("loading");
 
-function updateVilniusTime() {
-  if (!timeEl) return;
+const loader = document.querySelector("#loader");
+const loaderCount = document.querySelector("#loader-count");
+const loaderProgress = document.querySelector("#loader-progress");
+const loaderWord = document.querySelector("#loader-word");
+const words = ["Design", "Create", "Ship"];
+let loaderStarted = performance.now();
 
-  const value = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/Vilnius",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date());
+function animateLoader(now) {
+  const elapsed = now - loaderStarted;
+  const progress = Math.min(elapsed / 1900, 1);
+  const count = Math.round(progress * 100);
 
-  timeEl.textContent = value;
+  loaderCount.textContent = String(count).padStart(3, "0");
+  loaderProgress.style.transform = `scaleX(${progress})`;
+  loaderWord.textContent = words[Math.min(words.length - 1, Math.floor(progress * words.length))];
+
+  if (progress < 1) {
+    requestAnimationFrame(animateLoader);
+    return;
+  }
+
+  window.setTimeout(() => {
+    loader.classList.add("done");
+    document.body.classList.remove("loading");
+  }, 320);
 }
 
-updateVilniusTime();
-setInterval(updateVilniusTime, 30_000);
+requestAnimationFrame(animateLoader);
+
+const header = document.querySelector("#site-header");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 100);
+});
+
+const roleWord = document.querySelector("#role-word");
+const roles = ["builder", "modder", "hardware maker", "toolsmith", "visual creator"];
+let roleIndex = 0;
+
+window.setInterval(() => {
+  roleIndex = (roleIndex + 1) % roles.length;
+  roleWord.animate(
+    [
+      { opacity: 0, transform: "translateY(8px)" },
+      { opacity: 1, transform: "translateY(0)" },
+    ],
+    { duration: 380, easing: "ease-out" },
+  );
+  roleWord.textContent = roles[roleIndex];
+}, 2000);
+
+function attachHls(video) {
+  if (!video) return;
+
+  const source = "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
+
+  if (window.Hls && window.Hls.isSupported()) {
+    const hls = new window.Hls();
+    hls.loadSource(source);
+    hls.attachMedia(video);
+    return;
+  }
+
+  if (video.canPlayType("application/vnd.apple.mpegurl")) {
+    video.src = source;
+  }
+}
+
+attachHls(document.querySelector("#hero-video"));
+attachHls(document.querySelector("#footer-video"));
 
 async function loadDownloadStats() {
   const endpoints = [
@@ -32,91 +87,10 @@ async function loadDownloadStats() {
         const data = await response.json();
         if (data.downloads) target.textContent = data.downloads;
       } catch {
-        // Static fallback values stay visible when the stats API is unreachable.
+        // Static fallback values stay visible when stats API is unreachable.
       }
     }),
   );
 }
 
 loadDownloadStats();
-
-const canvas = document.querySelector("#signal-canvas");
-const ctx = canvas.getContext("2d");
-const particles = [];
-const colors = ["#74f0c5", "#7bb7ff", "#ff7a6b", "#ffd166"];
-
-function resizeCanvas() {
-  const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  canvas.width = Math.floor(window.innerWidth * ratio);
-  canvas.height = Math.floor(window.innerHeight * ratio);
-  canvas.style.width = `${window.innerWidth}px`;
-  canvas.style.height = `${window.innerHeight}px`;
-  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-}
-
-function seedParticles() {
-  particles.length = 0;
-  const count = Math.min(70, Math.max(32, Math.floor(window.innerWidth / 18)));
-
-  for (let i = 0; i < count; i += 1) {
-    particles.push({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.42,
-      vy: (Math.random() - 0.5) * 0.42,
-      size: 1.2 + Math.random() * 2.8,
-      color: colors[i % colors.length],
-    });
-  }
-}
-
-function draw() {
-  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-  for (const point of particles) {
-    point.x += point.vx;
-    point.y += point.vy;
-
-    if (point.x < -20) point.x = window.innerWidth + 20;
-    if (point.x > window.innerWidth + 20) point.x = -20;
-    if (point.y < -20) point.y = window.innerHeight + 20;
-    if (point.y > window.innerHeight + 20) point.y = -20;
-
-    ctx.beginPath();
-    ctx.fillStyle = point.color;
-    ctx.globalAlpha = 0.7;
-    ctx.arc(point.x, point.y, point.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  ctx.globalAlpha = 0.14;
-  ctx.strokeStyle = "#f5f0e8";
-  for (let i = 0; i < particles.length; i += 1) {
-    for (let j = i + 1; j < particles.length; j += 1) {
-      const a = particles[i];
-      const b = particles[j];
-      const dx = a.x - b.x;
-      const dy = a.y - b.y;
-      const distance = Math.hypot(dx, dy);
-
-      if (distance < 145) {
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
-        ctx.stroke();
-      }
-    }
-  }
-  ctx.globalAlpha = 1;
-
-  requestAnimationFrame(draw);
-}
-
-window.addEventListener("resize", () => {
-  resizeCanvas();
-  seedParticles();
-});
-
-resizeCanvas();
-seedParticles();
-draw();
